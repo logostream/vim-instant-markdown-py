@@ -19,6 +19,8 @@ def startServer():
     sock.listen(1)
     if sys.platform.startswith('darwin'):
         os.system('open -g index.html')
+    elif sys.platform.startswith('win'):
+        os.system('start index.html')
     else:
         print 'Please open ./index.html'
     while True:
