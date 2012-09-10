@@ -14,7 +14,7 @@ Installation
 
 - Vim should have Python support.
 - Python 2.x with Bottle, Markdown, Pygments.
-- Put `vim-instant-markdown-py` in `~/.vim/plugin`.
+- Put `md-live.vim` in `~/.vim/plugin`.
 - Put other files somewhere together.
 
 Run

@@ -14,12 +14,14 @@ function! UpdateMarkdown()
         let b:md_tick = b:changedtick
 python << EOF
 import urllib, urllib2, vim, threading
-print "Hello world!"
-#try:
-t = threading.Thread(target=lambda: urllib2.urlopen('http://localhost:9999/', data=urllib.urlencode({'md':'\n'.join(vim.current.buffer)})).read())
+def do():
+  try:
+    urllib2.urlopen('http://localhost:9999/', data=urllib.urlencode({'md':'\n'.join(vim.current.buffer)})).read()
+  except:pass
+
+t = threading.Thread(target=do)
 t.daemon=True
 t.start()
-#except:pass
 EOF
     endif
 endfunction

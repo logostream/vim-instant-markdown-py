@@ -17,10 +17,11 @@ def startServer():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(("localhost", 9998))
     sock.listen(1)
+    html = os.path.join(sys.path[0], 'index.html')
     if sys.platform.startswith('darwin'):
-        os.system('open -g index.html')
+        os.system('open -g {}'.format(html))
     elif sys.platform.startswith('win'):
-        os.system('start index.html')
+        os.system('start {}'.format(html))
     else:
         print 'Please open ./index.html'
     while True:
